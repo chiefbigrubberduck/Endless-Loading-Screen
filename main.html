@@ -1,0 +1,85 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<base target="_top">
+<title>gn math</title>
+<style>
+body {
+margin: 0;
+height: 100vh;
+display: flex;
+align-items: center;
+justify-content: center;
+background: #111;
+color: white;
+font-family: Arial, sans-serif;
+flex-direction: column;
+gap: 15px;
+}
+
+.spinner {
+width: 60px;
+height: 60px;
+border: 8px solid #333;
+border-top-color: #00bcd4;
+border-radius: 50%;
+animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+from { transform: rotate(0deg); }
+to { transform: rotate(360deg); }
+}
+
+.text {
+font-size: 1.2rem;
+letter-spacing: 2px;
+}
+
+.funny {
+font-size: 0.9rem;
+color: #aaa;
+text-align: center;
+max-width: 280px;
+}
+</style>
+</head>
+<body>
+<div class="spinner"></div>
+<div class="text">Loading...</div>
+<div class="funny" id="funny-message"></div>
+
+<script>
+const messages = [
+"Installing more loading screens...",
+"Please wait while we wait for something to wait for.",
+"Loading: 0% complete. Estimated time: forever.",
+"Turning it off and not back on again...",
+"Uploading your screen brightness to the cloud...",
+"Downloading the progress bar...",
+"Calibrating the hamster that powers this server...",
+"Checking if the internet is made of cheese...",
+"Doing extremely advanced math... like 1+1.",
+"Encrypting your loading bar with crayons...",
+"Connecting to Wi-Fi: 'Totally Real Network'...",
+"Asking Google how to finish loading...",
+"Simulating progress... do not simulate back.",
+"Upgrading from version 1.0 to 0.9...",
+"Consulting the Magic 8-Ball for loading advice...",
+"Teaching the calculator how to do homework.",
+"Asking the Math Gods for extra credit..."
+];
+
+const funnyEl = document.getElementById("funny-message");
+
+function changeMessage() {
+const randomIndex = Math.floor(Math.random() * messages.length);
+funnyEl.textContent = messages[randomIndex];
+}
+
+changeMessage();
+setInterval(changeMessage, 3000);
+</script>
+</body>
+</html>
